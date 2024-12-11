@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Recommendations</h1>
+    </header>
+    <form method="get">
+        <label for="user_id">User ID:</label>
+        <input type="number" name="user_id" id="user_id">
+        <button type="submit">Get Recommendations</button>
+    </form>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Estimated Rating</th>
+        </tr>
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie[1] }}</td>
+            <td>{{ "%.2f" | format(movie[2]) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
